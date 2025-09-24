@@ -127,15 +127,18 @@ footer {
     font-size: 0.8rem;
     color: #888;
     /* absoluteからrelativeに戻し、flexで配置を調整 */
-    display: flex;
-    flex-direction: row;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    display: flex; 
+    /*flex-direction: row; */
     align-items: center; /* 左右中央揃え */
-    width: 100%;
+    width: auto;
 }
 
 footer p {
     margin-bottom: 0;
-    /* margin-right: 10px; */
+    margin-right: 10px;
 }
 
 .team-logo.footer-logo {
@@ -182,5 +185,9 @@ footer p {
     }
     .container {
         padding-bottom: 60px;
+    }
+    footer {
+       right: 10px;
+       bottom: 10px;
     }
 }
