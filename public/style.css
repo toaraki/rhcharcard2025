@@ -1,5 +1,4 @@
-/* ... 既存のスタイル ... */
-
+/* 基本設定 */
 body {
     background-color: #000;
     color: #fff;
@@ -21,10 +20,9 @@ body {
     position: relative; /* footerのロゴを配置するために必要 */
 }
 
-/* ヘッダーセクション（メダル用）は削除、medal-sectionが代わり */
-
+/* メダルセクション */
 .medal-section {
-    margin-bottom: 20px; /* ホスト名との間に余白 */
+    margin-bottom: 20px;
 }
 
 .medal-image.large-medal {
@@ -33,22 +31,19 @@ body {
     height: auto;
     border-radius: 10px;
     box-shadow: 0 0 25px rgba(0, 255, 0, 0.7); /* ネオン効果を強調 */
-    margin-top: 0; /* 最上段なので上マージンは不要 */
+    margin-top: 0;
 }
 
-h1 {
-    font-size: 1.5rem; /* ホスト名、ミッションリワードと同じサイズ */
+/* テキストスタイル */
+h1, h2 {
+    font-size: 1.5rem;
     font-weight: 500;
     margin-top: 30px;
     margin-bottom: 10px;
-    color: #00ff00; /* ホスト名のネオンカラー */
 }
 
-h2 {
-    font-size: 1.5rem; /* ミッションリワードのサイズ */
-    font-weight: 500;
-    margin-top: 10px; /* メダルとの間の余白 */
-    margin-bottom: 10px;
+h1 {
+    color: #00ff00;
 }
 
 h3 {
@@ -56,30 +51,85 @@ h3 {
     font-weight: 500;
     margin-top: 30px;
     margin-bottom: 10px;
-    cursor: pointer; /* タップ可能であることを示す */
+    cursor: pointer;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 5px;
 }
 
 .specs-list {
     margin-top: 10px;
     text-align: left;
-    /* ... 既存のスタイル ... */
+}
+
+.specs-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.specs-list li {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    color: #ccc;
 }
 
 .specs-list.hidden {
-    display: none; /* デフォルトで非表示 */
+    display: none;
 }
 
+/* シェアセクション */
+.share-section {
+    margin-top: 40px;
+}
+
+.share-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    padding: 12px 25px;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+    border: 2px solid #fff;
+}
+
+.x-button {
+    background-color: #000;
+    border: 2px solid #fff;
+}
+
+.x-logo {
+    width: 24px; /* 元のサイズに戻す */
+    height: 24px;
+    margin-right: 10px;
+}
+
+.x-button:hover {
+    background-color: #333;
+}
+
+.screenshot-hint {
+    font-size: 0.9rem;
+    margin-top: 15px;
+    color: #ccc;
+}
+
+/* フッター */
 footer {
     margin-top: 50px;
     font-size: 0.8rem;
     color: #888;
-    position: absolute; /* 親要素（.container）に対して絶対配置 */
-    bottom: 0; /* コンテナの最下部に配置 */
-    right: 20px; /* 右寄せ */
-    width: auto; /* コンテンツ幅に合わせる */
+    /* absoluteからrelativeに戻し、flexで配置を調整 */
     display: flex;
-    flex-direction: column; /* 縦並び */
-    align-items: flex-end; /* 右寄せ */
+    flex-direction: column;
+    align-items: center; /* 左右中央揃え */
+    width: 100%;
 }
 
 footer p {
@@ -87,20 +137,40 @@ footer p {
 }
 
 .team-logo.footer-logo {
-    width: 20px; /* 既存のサイズの1/10 (200px -> 20px) */
+    width: 50px; /* 既存のサイズの1/4 (200px -> 50px) */
     height: auto;
     margin-top: 10px;
 }
 
-/* ... 既存のアニメーション ... */
+/* アニメーション */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+.fade-in-delay {
+    animation: fadeIn 0.8s ease-out 0.5s forwards;
+    opacity: 0;
+}
+.fade-in-delay-2 {
+    animation: fadeIn 0.8s ease-out 1s forwards;
+    opacity: 0;
+}
+.fade-in-delay-3 {
+    animation: fadeIn 0.8s ease-out 1.5s forwards;
+    opacity: 0;
+}
 
 /* レスポンシブデザインの調整 */
 @media (max-width: 768px) {
     .medal-image.large-medal {
-        width: 100%; /* スマホでは画面幅に合わせる */
+        width: 100%;
     }
     .team-logo.footer-logo {
-        width: 15px; /* スマホではさらに小さく */
+        width: 40px; /* スマホではさらに小さく */
     }
     h1, h2, h3 {
         font-size: 1.2rem;
@@ -109,10 +179,6 @@ footer p {
         padding: 10px;
     }
     .container {
-        padding-bottom: 60px; /* スマホ用に調整 */
-    }
-    footer {
-        right: 10px;
-        bottom: 10px;
+        padding-bottom: 60px;
     }
 }
