@@ -8,30 +8,28 @@
 </head>
 <body>
     <div class="container">
-        <header>
-            <img src="<%= teamLogoUrl %>" alt="チームロゴ" class="team-logo">
-        </header>
+        <div class="medal-section fade-in-delay">
+            <img src="<%= medalUrl %>" alt="記念メダル" class="medal-image large-medal">
+            <h2>ミッション達成リワード！！</h2>
+        </div>
 
         <main>
-            <h1 class="fade-in"><%= hostname %> が起動しました！</h1>
+            <h1 class="fade-in-delay-2"><%= hostname %> が起動しました！</h1>
             
-            <div class="medal-section fade-in-delay-2">
-                <h2>ミッション達成リワード！！</h2>
-                <img src="<%= medalUrl %>" alt="記念メダル" class="medal-image">
+            <div class="specs-toggle-area fade-in-delay-3">
+                <h3 id="specs-header">VMスペック情報 (タップで表示)</h3>
+                <div id="specs-content" class="specs-list hidden">
+                    <ul>
+                        <li>CPUコア数: <%= specs.cpu %></li>
+                        <li>メモリ量: <%= specs.memory %></li>
+                        <li>ディスク容量: <%= specs.disk %></li>
+                        <li>OSディストリビューション: <%= specs.os_name %></li>
+                        <li>OSバージョン: <%= specs.os_version %></li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="specs-list fade-in-delay-3">
-               <h3>VMスペック情報</h3>
-               <ul>
-                 <li>CPUコア数: <%= specs.cpu %></li>
-                 <li>メモリ量: <%= specs.memory %></li>
-                 <li>ディスク容量: <%= specs.disk %></li>
-                 <li>OSディストリビューション: <%= specs.os_name %></li>
-                 <li>OSバージョン: <%= specs.os_version %></li>
-               </ul>
-            </div>
-
-            <div class="share-section fade-in-delay-3">
+            <div class="share-section fade-in-delay-4">
                 <h3>この体験をシェアしよう！</h3>
                 <p>この画面のスクリーンショットを撮って、X (Twitter)で投稿しよう！</p>
                 <a href="https://twitter.com/intent/tweet?text=私だけのVM「<%= hostname %>」がNu-Gen Virtualizationで起動した！記念メダルもゲット！%0A%23RHSC2025Tokyo%20%23NuGenVirtualization" target="_blank" class="share-button x-button">
@@ -44,7 +42,21 @@
 
         <footer>
             <p>&copy; RHSC 2025 Tokyo Nu-Gen Virtualization</p>
+            <img src="<%= teamLogoUrl %>" alt="チームロゴ" class="team-logo footer-logo">
         </footer>
+
     </div>
+
+    <script>
+        document.getElementById('specs-header').addEventListener('click', function() {
+            const specsContent = document.getElementById('specs-content');
+            specsContent.classList.toggle('hidden');
+            if (specsContent.classList.contains('hidden')) {
+                this.textContent = 'VMスペック情報 (タップで表示)';
+            } else {
+                this.textContent = 'VMスペック情報 (タップで非表示)';
+            }
+        });
+    </script>
 </body>
 </html>
