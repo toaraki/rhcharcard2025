@@ -135,7 +135,7 @@ footer {
 
 footer p {
     margin-bottom: 0;
-    margin-right: 10px;
+    /* margin-right: 10px; */
 }
 
 .team-logo.footer-logo {
