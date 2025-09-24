@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
     hostname: config.hostname, // setup.shから渡されたホスト名
     medalUrl: config.medalUrl, // setup.shから渡されたメダルURL
     // 追加: チームロゴのパス
-    teamLogoUrl: '/t-logo.png' // publicディレクトリからの相対パス
+    teamLogoUrl: '/t-logo.png', // publicディレクトリからの相対パス
     specs: config.specs || {} // specsオブジェクトを追加
   });
 });

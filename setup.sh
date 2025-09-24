@@ -27,7 +27,7 @@ OS_VERSION=$(grep -oP '(?<=^VERSION_ID=).*' /etc/os-release | tr -d '"')
 
 # 設定ファイルを生成
 # echo "{\"hostname\": \"$HOST_NAME\", \"medalUrl\": \"$MEDAL_IMAGE_URL\"}" > config.json
-echo "{\"hostname\": \"$HOST_NAME\", \"medalUrl\": \"$MEDAL_IMAGE_URL\", \"specs\": {\"cpu\": \"${CPU_CORES}\", \"memory\": \"${MEMORY_GB} GB\", \"disk\": \"${DISK_GB}G\", \"os_name\": \"${OS_NAME}\", \"os_version\": \"${OS_VERSION}\"}}" > config.json
+echo "{\"hostname\": \"$HOST_NAME\", \"medalUrl\": \"$MEDAL_IMAGE_URL\", \"specs\": {\"cpu\": \"${CPU_CORES}\", \"memory\": \"${MEMORY_GB} GB\", \"disk\": \"${DISK_GB}GB\", \"os_name\": \"${OS_NAME}\", \"os_version\": \"${OS_VERSION}\"}}" > config.json
 
 # アプリケーションをバックグラウンドで起動
 node server.js &
