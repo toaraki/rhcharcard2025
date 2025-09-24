@@ -1,3 +1,4 @@
+/* 基本設定 */
 body {
     background-color: #000;
     color: #fff;
@@ -22,19 +23,24 @@ header {
 }
 
 .team-logo {
-    width: 150px;
+    width: 200px; /* 統一サイズ */
     height: auto;
 }
 
-h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
+/* ホスト名とリワードの文字サイズを統一 */
+h1, h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-top: 30px;
     margin-bottom: 10px;
-    color: #00ff00; /* ネオンカラー */
 }
 
-h2, h3 {
-    font-size: 1.5rem;
+h1 {
+    color: #00ff00; /* ホスト名のネオンカラー */
+}
+
+h3 {
+    font-size: 1.2rem;
     font-weight: 500;
     margin-top: 30px;
     margin-bottom: 10px;
@@ -47,12 +53,30 @@ p {
 }
 
 .medal-image {
-    width: 200px;
+    width: 200px; /* 統一サイズ */
     height: auto;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 255, 0, 0.5); /* ネオン効果 */
     margin-top: 20px;
 }
+
+.specs-list {
+    margin-top: 30px;
+    text-align: left; /* リストを左寄せ */
+}
+
+.specs-list ul {
+    list-style: none; /* リストの点マークを削除 */
+    padding: 0;
+    margin: 0;
+}
+
+.specs-list li {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    color: #ccc;
+}
+
 
 .share-section {
     margin-top: 40px;
@@ -120,18 +144,12 @@ footer {
     opacity: 0;
 }
 
-/* PC/スマホ対応 */
+/* レスポンシブデザインの調整 */
 @media (max-width: 768px) {
-    h1 {
-        font-size: 2rem;
+    .team-logo, .medal-image {
+        width: 150px; /* スマホでは少し小さく */
     }
-    h2, h3 {
+    h1, h2, h3 {
         font-size: 1.2rem;
-    }
-    .medal-image {
-        width: 150px;
-    }
-    .share-button {
-        padding: 10px 20px;
     }
 }

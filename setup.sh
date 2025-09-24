@@ -18,8 +18,16 @@ HOST_NAME=$(hostname)
 #MEDAL_IMAGE_URL="https://your-server.com/public/medal_$(shuf -i 1-4 -n 1).png"
 MEDAL_IMAGE_URL="/medal_$(shuf -i 1-4 -n 1).png"
 
+# VMスペック情報の取得
+CPU_CORES=$(nproc)
+MEMORY_GB=$(echo "scale=2; $(free -m | awk 'NR==2{print $2}') / 1024" | bc)
+DISK_GB=$(df -h --output=size / | tail -n 1 | sed 's/G//')
+OS_NAME=$(grep -oP '(?<=^NAME=).*' /etc/os-release | tr -d '"')
+OS_VERSION=$(grep -oP '(?<=^VERSION_ID=).*' /etc/os-release | tr -d '"')
+
 # 設定ファイルを生成
-echo "{\"hostname\": \"$HOST_NAME\", \"medalUrl\": \"$MEDAL_IMAGE_URL\"}" > config.json
+# echo "{\"hostname\": \"$HOST_NAME\", \"medalUrl\": \"$MEDAL_IMAGE_URL\"}" > config.json
+echo "{\"hostname\": \"$HOST_NAME\", \"medalUrl\": \"$MEDAL_IMAGE_URL\", \"specs\": {\"cpu\": \"${CPU_CORES}\", \"memory\": \"${MEMORY_GB} GB\", \"disk\": \"${DISK_GB}G\", \"os_name\": \"${OS_NAME}\", \"os_version\": \"${OS_VERSION}\"}}" > config.json
 
 # アプリケーションをバックグラウンドで起動
 node server.js &

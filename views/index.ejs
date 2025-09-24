@@ -20,6 +20,17 @@
                 <img src="<%= medalUrl %>" alt="記念メダル" class="medal-image">
             </div>
 
+            <div class="specs-list fade-in-delay-3">
+               <h3>VMスペック情報</h3>
+               <ul>
+                 <li>CPUコア数: <%= specs.cpu %></li>
+                 <li>メモリ量: <%= specs.memory %></li>
+                 <li>ディスク容量: <%= specs.disk %></li>
+                 <li>OSディストリビューション: <%= specs.os_name %></li>
+                 <li>OSバージョン: <%= specs.os_version %></li>
+               </ul>
+            </div>
+
             <div class="share-section fade-in-delay-3">
                 <h3>この体験をシェアしよう！</h3>
                 <p>この画面のスクリーンショットを撮って、X (Twitter)で投稿しよう！</p>

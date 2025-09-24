@@ -32,6 +32,7 @@ app.get('/', (req, res) => {
     medalUrl: config.medalUrl, // setup.shから渡されたメダルURL
     // 追加: チームロゴのパス
     teamLogoUrl: '/t-logo.png' // publicディレクトリからの相対パス
+    specs: config.specs || {} // specsオブジェクトを追加
   });
 });
 
