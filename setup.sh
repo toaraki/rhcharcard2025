@@ -20,7 +20,9 @@ MEDAL_IMAGE_URL="/medal_$(shuf -i 1-7 -n 1).png"
 
 # VMスペック情報の取得
 CPU_CORES=$(nproc)
-MEMORY_GB=$(echo "scale=2; $(free -m | awk 'NR==2{print $2}') / 1024" | bc)
+# MEMORY_GB=$(echo "scale=2; $(free -m | awk 'NR==2{print $2}') / 1024" | bc)
+MEMORY_MB=$(free -m | awk 'NR==2{print $2}')
+MEMORY_GB=$((MEMORY_MB / 1024))
 DISK_GB=$(df -h --output=size / | tail -n 1 | sed 's/G//')
 OS_NAME=$(grep -oP '(?<=^NAME=).*' /etc/os-release | tr -d '"')
 OS_VERSION=$(grep -oP '(?<=^VERSION_ID=).*' /etc/os-release | tr -d '"')
