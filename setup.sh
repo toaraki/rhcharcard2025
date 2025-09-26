@@ -16,7 +16,7 @@ npm install
 # cloud-initのuser-dataでこれらの変数を設定してください
 HOST_NAME=$(hostname)
 #MEDAL_IMAGE_URL="https://your-server.com/public/medal_$(shuf -i 1-4 -n 1).png"
-MEDAL_IMAGE_URL="/medal_$(shuf -i 1-4 -n 1).png"
+MEDAL_IMAGE_URL="/medal_$(shuf -i 1-7 -n 1).png"
 
 # VMスペック情報の取得
 CPU_CORES=$(nproc)
