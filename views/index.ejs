@@ -20,7 +20,7 @@
             <h1 class="fade-in-delay-2"><%= hostname %> が起動しました！</h1>
             
             <div class="specs-toggle-area fade-in-delay-3">
-                <h3 id="specs-header">VMスペック情報 (タップで表示)</h3>
+                <h4 id="specs-header">VMスペック情報 (タップで表示)</h4>
                 <div id="specs-content" class="specs-list hidden">
                     <ul>
                         <li>CPUコア数: <%= specs.cpu %></li>
@@ -33,7 +33,7 @@
             </div>
 
             <div class="share-section fade-in-delay-4">
-                <h3>この体験,スクリーンショットをシェアしよう！</h3>
+                <h3>この体験をシェアしよう！</h3>
                 <!-- <p>この画面のスクリーンショットを撮って、X に投稿しよう！</p> -->
                 <a href="https://twitter.com/intent/tweet?text=私のVM「<%= hostname %>」がOpenShift Virtualizationで稼働中！%0A%23RHSC2025Tokyo%20%23OpenShiftVirtualization%20%23openshiftjp" target="_blank" class="share-button x-button">
                     <img src="/x-logo-white.png" alt="X (Twitter)でシェア" class="x-logo">
