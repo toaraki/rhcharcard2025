@@ -17,8 +17,8 @@ npm install
 HOST_NAME=$(hostname)
 # MEDAL_IMAGE_URL="https://your-server.com/public/medal_$(shuf -i 1-4 -n 1).png"
 # MEDAL_IMAGE_URL="/medal_$(shuf -i 1-7 -n 1).png"
-MEDAL_IMAGE_URL="https://your-server.com/public/medal_random.png"
-curl -o "/opt/app/medal_image.png" "$MEDAL_IMAGE_URL"
+MEDAL_IMAGE_URL="https://image-asset-depo:3000/public/medal_random.png"
+sudo curl -o "/opt/app/public/medal_image.png" "$MEDAL_IMAGE_URL"
 # 画像の参照パスをローカルのファイルに変更
 MEDAL_IMAGE_URL="/medal_image.png"
 
